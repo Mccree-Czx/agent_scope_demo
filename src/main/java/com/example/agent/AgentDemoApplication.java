@@ -65,38 +65,6 @@ public class AgentDemoApplication {
         Msg r3Msg = agent.call(new UserMessage("你叫什么名字"), runtimeContext).block();
         log.info("Agent 回复: {}", r3Msg.getTextContent());
         
-        /*
-         * TODO【掌握点：Harness 入口】AgentScope.run 启动会话。
-         * Harness 模块传递依赖 Core 层，是推荐入口，无需手动初始化。
-         *
-         * 引入 AgentScope 依赖后，取消注释以下代码即可运行：
-         *
-         * import io.agentscope.AgentScope;
-         * import io.agentscope.core.agent.Agent;
-         * import io.agentscope.core.message.Msg;
-         * import io.agentscope.extensions.model.dashscope.DashScopeModel;
-         *
-         * AgentScope.run(() -> {
-         *     // TODO【掌握点：模型配置】初始化 DashScope 模型连接
-         *     var model = DashScopeModel.builder()
-         *             .apiKey(dashScopeApiKey)
-         *             .model(modelName)
-         *             .build();
-         *
-         *     // TODO【掌握点：Agent 构建】创建对话 Agent
-         *     var agent = Agent.builder()
-         *             .name("DemoAgent")
-         *             .model(model)
-         *             .sysPrompt("你是一个乐于助人的AI助手。")
-         *             .build();
-         *
-         *     var response = agent.call(
-         *             Msg.user("你好，请用一句话介绍你自己。")
-         *     );
-         *
-         *     log.info("Agent 回复: {}", response.getText());
-         * });
-         */
 
          }
 }

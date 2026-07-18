@@ -2,6 +2,11 @@ package com.example.agent;
 
 import com.example.agent.config.AgentConfig;
 import io.agentscope.core.agent.RuntimeContext;
+import io.agentscope.core.event.AgentEvent;
+import io.agentscope.core.event.AgentEventType;
+import io.agentscope.core.event.TextBlockDeltaEvent;
+import io.agentscope.core.event.ToolCallEndEvent;
+import io.agentscope.core.event.ToolCallStartEvent;
 import io.agentscope.core.message.Msg;
 import io.agentscope.core.message.UserMessage;
 import io.agentscope.extensions.model.openai.OpenAIChatModel;
@@ -48,5 +53,19 @@ public class AgentDemoOpenAi {
 
         Msg reply = agent.call(new UserMessage("你好，请介绍一下你自己"), ctx).block();
         log.info("Agent 回复: {}", reply.getTextContent());
+
+        // 流式输出
+        agent.streamEvents(new UserMessage("你好，请介绍一下你自己"), ctx)
+                .doOnNext(event -> {
+                    switch (event.getType()) {
+                        case TEXT_BLOCK_DELTA -> System.out.print(((TextBlockDeltaEvent) event).getDelta());
+                        case TOOL_CALL_START -> System.out.println("\n🔧 调用工具: " + ((ToolCallStartEvent) event).getToolCallName());
+                        case TOOL_CALL_END -> System.out.println("\n✅ 工具执行完成");
+                        default -> log.info("Event: {}", event.getType());
+                    }
+                })
+                .blockLast();
+
+        
     }
 }
