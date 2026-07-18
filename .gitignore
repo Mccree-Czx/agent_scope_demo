@@ -1,0 +1,20 @@
+# Maven
+target/
+
+# AgentScope 运行时工作区
+.agentscope/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# 环境变量文件（切勿提交含 API Key 的文件）
+.env
+*.env
+
+# 日志
+*.log
+
+# OS
+.DS_Store
