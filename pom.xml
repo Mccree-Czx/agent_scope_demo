@@ -51,6 +51,12 @@
             <artifactId>agentscope-extensions-model-openai</artifactId>
         </dependency>
 
+        <!-- 持久化扩展：Redis -->
+        <dependency>
+            <groupId>io.agentscope</groupId>
+            <artifactId>agentscope-extensions-redis</artifactId>
+        </dependency>
+
         <!-- SLF4J 日志 -->
         <dependency>
             <groupId>org.slf4j</groupId>
