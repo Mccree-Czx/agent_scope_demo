@@ -1,3 +1,4 @@
+package com.example.agent;
 import com.example.agent.config.AgentConfig;
 import io.agentscope.core.ReActAgent;
 import io.agentscope.core.agent.RuntimeContext;
