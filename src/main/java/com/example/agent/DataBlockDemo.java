@@ -18,6 +18,7 @@ import io.agentscope.harness.agent.HarnessAgent;
 public class DataBlockDemo {
 
     public static void main(String[] args) throws IOException {
+        String path = "/Users/mj/Desktop/agent_dashscope_demo/d02608ee08a2a43433c8ff63270c4388.jpg";
         // 创建 DashScope 模型（通义千问）
         DashScopeChatModel model = DashScopeChatModel.builder()
                 .apiKey(AgentConfig.getDashScopeApiKey())
@@ -28,11 +29,11 @@ public class DataBlockDemo {
                 .name("vision-agent")
                 .sysPrompt("你是多模态助手，可以理解图片内容。")
                 .model(model)
-                .workspace("./workspace-vision")
+                .workspace("./workspace/vision")
                 .build();
 
         // 读取本地图片并转为 Base64
-        Path imagePath = Path.of("/Users/mj/Desktop/agent_dashscope_demo/d02608ee08a2a43433c8ff63270c4388.jpg");  // 替换为你的图片路径
+        Path imagePath = Path.of(path);  // 替换为你的图片路径
         byte[] imageBytes = Files.readAllBytes(imagePath);
         String base64Image = Base64.getEncoder().encodeToString(imageBytes);
 

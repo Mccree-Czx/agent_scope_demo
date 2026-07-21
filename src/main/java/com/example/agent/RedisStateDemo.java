@@ -51,7 +51,7 @@ public class RedisStateDemo {
         HarnessAgent agent1 = HarnessAgent.builder()
                 .name("redis-state-demo")
                 .sysPrompt("你是一名助手，记住用户信息")
-                .workspace("./workspace-redis_1")
+                .workspace("./workspace/redis_1")
                 .model(model)
                 .stateStore(redisStateStore)
                 .build();
@@ -62,7 +62,7 @@ public class RedisStateDemo {
         HarnessAgent agent2 = HarnessAgent.builder()
                 .name("redis-state-demo")
                 .sysPrompt("你是一名助手，记住用户信息")
-                .workspace("./workspace-redis_2")
+                .workspace("./workspace/redis_2")
                 .model(model)
                 .stateStore(redisStateStore)
                 .build();

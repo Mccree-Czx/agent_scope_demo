@@ -4,6 +4,7 @@ target/
 # AgentScope 运行时工作区
 .agentscope/
 persistent-session-demo/
+workspace/
 workspace-redis_1/
 workspace-redis_2/
 workspace-vision/
