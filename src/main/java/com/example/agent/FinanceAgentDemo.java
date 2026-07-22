@@ -32,6 +32,4 @@ public class FinanceAgentDemo {
         Msg msg = agent.call(new UserMessage("你怎么看贵州茅台"), ctx).block();
         System.out.println(msg.getTextContent());
     }
-
-
 }
